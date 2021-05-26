@@ -5,7 +5,7 @@ import json
 import string
 
 
-client = MongoClient("put link to mongodb db here")
+client = MongoClient()
 
 user_ref = client.spotify.users
 room_ref = client.spotify.rooms
