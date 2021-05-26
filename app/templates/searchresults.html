@@ -1,0 +1,43 @@
+<div id="songresponse">
+    <table class="table">
+        <tbody>
+            {% for song in results %}
+            <tr>
+                <td><img src={{ song["song_img"] }} width="64" height="64"></td>
+                <td id="song-name">{{ song["song_name"] }}</td>
+                <td>{{ song["artist"] }}</td>
+                <td>
+                    <button id="queue-button" type="button" class="btn btn-primary queue-button" value={{ song["songid"]  }}>Add to liked!</button>
+                </td>
+            </tr>
+            {% endfor %}
+            {% if not results %}
+            <tr>No Results Found</tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    $(".queue-button").click(function(e) {
+      e.preventDefault()
+      $.ajax({
+        type: "GET",
+        url:"/user/like",
+        data: {
+          songid: $(this).val()
+        },
+        success: function(response) {
+          document.getElementById("search-form-input").value = "";
+          var div = document.getElementById("songresponse");
+          while (div.firstChild) {
+            div.removeChild(div.firstChild)
+          }
+          checkNum()
+        },
+        error: function(xhr) {
+          console.log(xhr);
+        }
+      });
+    }); 
+</script>
