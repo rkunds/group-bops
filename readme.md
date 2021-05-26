@@ -19,7 +19,7 @@ Try it out [here](https://rkunds-group-bops.uk.r.appspot.com/)
 Here is an example of a user joining a room and selecting seed songs for recommendations. They then start
 interacting with the given songs in order to start generating the playlist for the room. 
 
-![](/img/sample.gif "this is a sample gif")
+![](img/e31c5ac7-64d5-4099-8620-36fc441ddb03.gif "this is a sample gif")
 
 ## Future Plans / Updates
 
